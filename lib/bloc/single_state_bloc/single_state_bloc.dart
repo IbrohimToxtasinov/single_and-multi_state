@@ -8,13 +8,14 @@ part 'single_state_event.dart';
 part 'single_bloc_state.dart';
 
 class SingleStateBloc extends Bloc<FetchUsersCards, SingleBlocState> {
-  SingleStateBloc({required this.appRepository}) : super(SingleBlocState()) {
-    on<FetchUsersCards>(getData);
+  SingleStateBloc({required this.appRepository})
+      : super(SingleBlocState(status: Status.PURE, error: "", cards: [])) {
+    on<FetchUsersCards>(_fetchData);
   }
 
   final AppRepository appRepository;
 
-  getData(FetchUsersCards event, Emitter<SingleBlocState> emit) async {
+  _fetchData(FetchUsersCards event, Emitter<SingleBlocState> emit) async {
     emit(state.copyWith(status: Status.LOADING));
     MyResponse myResponse = await appRepository.getAllCards();
     if (myResponse.error.isEmpty) {

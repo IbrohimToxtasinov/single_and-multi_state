@@ -1,14 +1,14 @@
 part of 'single_state_bloc.dart';
 
 class SingleBlocState extends Equatable {
-  Status? status;
-  String? error;
-  List? cards;
+  Status status;
+  String error;
+  List cards;
 
   SingleBlocState({
-    this.status,
-    this.error,
-    this.cards,
+    required this.status,
+    required this.error,
+    required this.cards,
   });
 
   SingleBlocState copyWith({
