@@ -35,7 +35,7 @@ class _UserCardsCubitScreenState extends State<UserCardsCubitScreen> {
       child: BlocBuilder<UserCardsCubit, UserCardCubitsState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(title: const Text("Multi State Bloc")),
+            appBar: AppBar(title: const Text("Multi State Cubit")),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
